@@ -8,6 +8,7 @@ def preprocess_ecg(ecg_signal, sampling_rate=1000):
     ecg_cleaned = nk.ecg_clean(ecg_signal, sampling_rate=sampling_rate)
     r_peaks, _ = nk.ecg_peaks(ecg_cleaned, sampling_rate=sampling_rate)
     hrv_features = nk.hrv_time(r_peaks["ECG_R_Peaks"], sampling_rate=sampling_rate)
+    
     return ecg_cleaned, hrv_features
 
 def preprocess_eeg(eeg_signal, sampling_rate=1000):
